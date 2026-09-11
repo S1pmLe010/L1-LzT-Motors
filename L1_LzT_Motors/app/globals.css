@@ -1,0 +1,1329 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
+
+:root {
+    --bg: #070706;
+    --panel: #10100e;
+    --panel2: #151411;
+    --text: #f4f1e9;
+    --muted: #77736a;
+    --line: #292720;
+    --gold: #c9a65b;
+    --gold2: #e3c477
+}
+
+html[data-theme=light] {
+    --bg: #f3f0e8;
+    --panel: #fffdf8;
+    --panel2: #eeeae0;
+    --text: #151411;
+    --muted: #716d63;
+    --line: #d9d2c3
+}
+
+* {
+    box-sizing: border-box
+}
+
+html {
+    scroll-behavior: smooth
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Manrope, Arial, sans-serif;
+    transition: background .35s, color .35s
+}
+
+a {
+    color: inherit
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit
+}
+
+.nav {
+    height: 76px;
+    padding: 0 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    position: sticky;
+    top: 12px;
+    margin: 12px 1.2vw 0;
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    backdrop-filter: blur(20px);
+    z-index: 30
+}
+
+.logo {
+    text-decoration: none;
+    font-size: 19px;
+    letter-spacing: -.7px
+}
+
+.logo span {
+    color: var(--gold)
+}
+
+.logo b {
+    font-weight: 400;
+    color: var(--muted)
+}
+
+.navlinks {
+    display: flex;
+    gap: 32px
+}
+
+.navlinks a {
+    font: 10px 'DM Mono';
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    color: var(--muted)
+}
+
+.navlinks a:hover {
+    color: var(--gold)
+}
+
+.navActions {
+    display: flex;
+    gap: 7px;
+    align-items: center
+}
+
+.iconBtn,
+.langBtn,
+.garage {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    color: var(--text);
+    border-radius: 7px;
+    padding: 10px 12px;
+    cursor: pointer
+}
+
+.langBtn {
+    font: 10px 'DM Mono';
+    color: var(--gold)
+}
+
+.garage i {
+    font-style: normal;
+    color: var(--gold);
+    margin-left: 5px
+}
+
+.hero {
+    min-height: calc(100vh - 90px);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 9vw 8vw
+}
+
+.heroBackdrop {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 78% 30%, #4c3b20 0, transparent 25%), radial-gradient(circle at 40% 80%, #1e1a13 0, transparent 28%), linear-gradient(120deg, #060605 0%, #11100d 50%, #090908 100%);
+    z-index: 0
+}
+
+.heroBackdrop:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(5, 5, 4, .98) 0%, rgba(7, 7, 6, .7) 38%, rgba(7, 7, 6, .2) 100%), url('https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?q=85&w=2200&auto=format&fit=crop') center/cover;
+    opacity: .3;
+    mix-blend-mode: screen
+}
+
+.heroGrid {
+    position: absolute;
+    inset: -20%;
+    background-image: linear-gradient(rgba(201, 166, 91, .045) 1px, transparent 1px), linear-gradient(90deg, rgba(201, 166, 91, .045) 1px, transparent 1px);
+    background-size: 70px 70px;
+    transform: perspective(500px) rotateX(55deg) translateY(25%);
+    transform-origin: center;
+    opacity: .6
+}
+
+.heroContent,
+.heroStats {
+    position: relative;
+    z-index: 2
+}
+
+.heroContent {
+    max-width: 900px
+}
+
+.eyebrow {
+    font: 10px 'DM Mono';
+    letter-spacing: 2.3px;
+    color: var(--gold)
+}
+
+h1,
+h2,
+h3 {
+    margin: 0
+}
+
+.hero h1 {
+    font-size: clamp(54px, 8vw, 112px);
+    line-height: .88;
+    letter-spacing: -5px;
+    margin: 20px 0
+}
+
+.hero h1 em,
+h2 em {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-weight: 600
+}
+
+.heroText {
+    max-width: 520px;
+    color: var(--muted);
+    line-height: 1.8
+}
+
+.heroButtons {
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+    align-items: center
+}
+
+.goldBtn,
+.ghostBtn {
+    display: inline-block;
+    padding: 13px 19px;
+    border-radius: 7px;
+    text-decoration: none;
+    border: 1px solid var(--line);
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer
+}
+
+.goldBtn {
+    background: var(--gold);
+    color: #111;
+    border-color: var(--gold)
+}
+
+.ghostBtn {
+    background: transparent;
+    color: var(--text)
+}
+
+.heroStats {
+    position: absolute;
+    right: 8vw;
+    bottom: 8vw;
+    display: flex;
+    gap: 35px
+}
+
+.heroStats div {
+    display: flex;
+    flex-direction: column
+}
+
+.heroStats b {
+    font-size: 25px
+}
+
+.heroStats span {
+    font: 9px 'DM Mono';
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-top: 5px
+}
+
+.section {
+    padding: 120px 8vw
+}
+
+.sectionHead {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 45px
+}
+
+.sectionHead h2,
+.manifesto h2 {
+    font-size: 55px;
+    line-height: 1;
+    letter-spacing: -2px;
+    margin-top: 8px
+}
+
+.muted {
+    color: var(--muted);
+    line-height: 1.75;
+    max-width: 390px
+}
+
+.filters {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 9px;
+    margin-bottom: 22px
+}
+
+.filters input,
+.filters select,
+.buyForm input,
+.buyForm select,
+.contactForm input,
+.contactForm select,
+.contactForm textarea,
+.form input,
+.adminTools input {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    color: var(--text);
+    padding: 14px;
+    outline: none
+}
+
+.filters input:focus,
+.buyForm input:focus,
+.contactForm input:focus,
+.contactForm textarea:focus,
+.form input:focus {
+    border-color: #776039
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 17px
+}
+
+.carCard {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    overflow: hidden;
+    transition: .35s
+}
+
+.carCard:hover {
+    transform: translateY(-7px);
+    border-color: #66522e;
+    box-shadow: 0 20px 60px #0005
+}
+
+.carImage {
+    height: 245px;
+    position: relative;
+    overflow: hidden
+}
+
+.carImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .6s
+}
+
+.carCard:hover .carImage img {
+    transform: scale(1.06)
+}
+
+.carImage span {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: var(--gold);
+    color: #111;
+    border-radius: 5px;
+    padding: 6px 8px;
+    font: 8px 'DM Mono'
+}
+
+.carBody {
+    display: flex;
+    justify-content: space-between;
+    padding: 19px 19px 10px;
+    gap: 10px
+}
+
+.carBody small {
+    font: 9px 'DM Mono';
+    color: var(--muted);
+    text-transform: uppercase
+}
+
+.carBody h3 {
+    font-size: 18px;
+    margin-top: 6px
+}
+
+.carBody>b {
+    color: var(--gold);
+    white-space: nowrap
+}
+
+.specs {
+    display: flex;
+    gap: 9px;
+    padding: 0 19px 16px;
+    color: var(--muted);
+    font: 9px 'DM Mono';
+    text-transform: uppercase
+}
+
+.specs span {
+    padding-right: 9px;
+    border-right: 1px solid var(--line)
+}
+
+.cardActions {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6px;
+    padding: 0 19px 19px
+}
+
+.cardActions>* {
+    padding: 10px 5px;
+    text-align: center;
+    background: var(--panel2);
+    border: 1px solid var(--line);
+    color: var(--text);
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 10px;
+    cursor: pointer
+}
+
+.cardActions>*:nth-child(2) {
+    color: var(--gold);
+    border-color: #59482a
+}
+
+.moreBtn {
+    display: block;
+    margin: 34px auto 0;
+    background: none;
+    border: 1px solid var(--line);
+    color: var(--gold);
+    padding: 13px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    font: 10px 'DM Mono';
+    text-transform: uppercase;
+    letter-spacing: 1.5px
+}
+
+.moreBtn span {
+    margin-left: 10px
+}
+
+.manifesto {
+    position: relative;
+    overflow: hidden;
+    background: var(--panel);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px
+}
+
+.manifestoGlow {
+    position: absolute;
+    width: 550px;
+    height: 550px;
+    border-radius: 50%;
+    background: #c9a65b1a;
+    filter: blur(100px);
+    right: -200px;
+    top: -180px
+}
+
+.manifesto>div:not(.manifestoGlow) {
+    position: relative;
+    z-index: 1
+}
+
+.manifestoText {
+    max-width: 560px;
+    color: var(--muted);
+    line-height: 1.9;
+    margin-top: 25px
+}
+
+.values {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    align-self: end
+}
+
+.values div {
+    border-top: 1px solid #55452b;
+    padding-top: 14px
+}
+
+.values b {
+    font: 10px 'DM Mono';
+    color: var(--gold)
+}
+
+.values span {
+    display: block;
+    margin-top: 12px;
+    font-size: 12px
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: #000b;
+    backdrop-filter: blur(14px);
+    z-index: 70;
+    display: grid;
+    place-items: center;
+    padding: 25px
+}
+
+.detail,
+.panel,
+.form {
+    position: relative;
+    width: min(1000px, 100%);
+    max-height: 92vh;
+    overflow: auto;
+    background: var(--panel);
+    border: 1px solid #4b402c;
+    border-radius: 14px;
+    box-shadow: 0 30px 100px #000
+}
+
+.detail {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 30px;
+    padding: 25px
+}
+
+.detail img {
+    width: 100%;
+    height: 370px;
+    object-fit: cover;
+    border-radius: 10px
+}
+
+.detail h2,
+.panel h2,
+.form h2 {
+    font-size: 46px;
+    line-height: 1;
+    margin: 8px 0 18px;
+    letter-spacing: -2px
+}
+
+.detailPrice {
+    font-size: 22px;
+    color: var(--gold)
+}
+
+.detailSpecs {
+    color: var(--muted);
+    line-height: 2
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    background: none;
+    border: 0;
+    color: var(--muted);
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 2
+}
+
+.panel,
+.form {
+    padding: 30px
+}
+
+.cartRow,
+.adminRow {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line)
+}
+
+.cartRow img,
+.adminRow img {
+    width: 78px;
+    height: 54px;
+    object-fit: cover;
+    border-radius: 6px
+}
+
+.cartRow div,
+.adminRow div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1
+}
+
+.cartRow span,
+.adminRow span {
+    color: var(--gold);
+    font-size: 11px
+}
+
+.cartRow button,
+.smallBtn,
+.adminRow button {
+    background: var(--panel2);
+    border: 1px solid var(--line);
+    color: var(--muted);
+    padding: 7px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer
+}
+
+.smallBtn {
+    color: var(--gold)
+}
+
+.admin {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    background: var(--bg);
+    padding: 35px 6vw;
+    overflow: auto
+}
+
+.adminTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+.adminTop h2 {
+    font-size: 50px;
+    letter-spacing: -2px;
+    margin-top: 8px
+}
+
+.adminNav {
+    display: flex;
+    gap: 6px;
+    border-bottom: 1px solid var(--line);
+    margin: 25px 0;
+    padding-bottom: 10px
+}
+
+.adminNav button {
+    background: none;
+    border: 1px solid transparent;
+    color: var(--muted);
+    padding: 9px 15px;
+    border-radius: 6px;
+    font: 9px 'DM Mono';
+    text-transform: uppercase;
+    cursor: pointer
+}
+
+.adminNav button.active,
+.adminNav button:hover {
+    color: var(--gold);
+    border-color: #5c4b2c;
+    background: var(--panel)
+}
+
+.adminStats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 15px
+}
+
+.adminStats div,
+.adminQuick,
+.inventoryAdmin,
+.analyticsCard {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    padding: 22px
+}
+
+.adminStats b {
+    display: block;
+    font-size: 27px;
+    color: var(--gold)
+}
+
+.adminStats span {
+    display: block;
+    font: 9px 'DM Mono';
+    color: var(--muted);
+    text-transform: uppercase;
+    margin: 5px 0
+}
+
+.adminStats small {
+    color: #555
+}
+
+.adminQuick {
+    display: flex;
+    gap: 9px;
+    align-items: center
+}
+
+.shortcut {
+    margin-left: auto;
+    font: 10px 'DM Mono';
+    color: var(--gold)
+}
+
+.shortcut span {
+    color: var(--muted);
+    margin-left: 8px
+}
+
+.adminTools {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+    margin-bottom: 12px
+}
+
+.analytics {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 15px
+}
+
+.analyticsCard h3 {
+    font-size: 25px;
+    margin: 7px 0 28px
+}
+
+.bar {
+    display: grid;
+    grid-template-columns: 120px 1fr 25px;
+    gap: 10px;
+    align-items: center;
+    margin: 12px 0
+}
+
+.bar span,
+.bar b {
+    font: 10px 'DM Mono';
+    color: var(--muted)
+}
+
+.bar i {
+    display: block;
+    height: 7px;
+    background: var(--gold);
+    border-radius: 20px;
+    width: var(--w)
+}
+
+.stockPill {
+    font: 8px 'DM Mono';
+    border: 1px solid #59482a;
+    color: var(--gold);
+    padding: 5px 7px;
+    border-radius: 20px
+}
+
+.danger {
+    color: #c86b61 !important
+}
+
+.formGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 11px;
+    margin: 22px 0
+}
+
+.form label {
+    font: 9px 'DM Mono';
+    color: var(--muted);
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    gap: 5px
+}
+
+.form .check {
+    flex-direction: row;
+    align-items: center
+}
+
+.toast {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 100;
+    background: var(--gold);
+    color: #111;
+    border-radius: 7px;
+    padding: 12px 16px;
+    font-size: 11px
+}
+
+.buyPage {
+    min-height: calc(100vh - 100px);
+    padding: 70px 8vw;
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 60px;
+    align-items: center;
+    background: radial-gradient(circle at 10% 90%, #2a2113 0, transparent 28%)
+}
+
+.buyVisual {
+    position: relative
+}
+
+.buyVisual img {
+    width: 100%;
+    height: 570px;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 1px solid var(--line);
+    box-shadow: 0 35px 100px #0008
+}
+
+.buyBadge {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    background: var(--gold);
+    color: #111;
+    border-radius: 6px;
+    padding: 8px 10px;
+    font: 9px 'DM Mono'
+}
+
+.buyInfo h1 {
+    font-size: clamp(50px, 6vw, 82px);
+    line-height: .9;
+    letter-spacing: -4px;
+    margin: 15px 0
+}
+
+.buyPrice {
+    font-size: 24px;
+    color: var(--gold);
+    margin-bottom: 25px
+}
+
+.buySpecs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 25px
+}
+
+.buySpecs span {
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    padding: 7px 9px;
+    color: var(--muted);
+    font: 9px 'DM Mono'
+}
+
+.buyForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+    margin-top: 25px
+}
+
+.buyForm button {
+    grid-column: 1/-1;
+    width: max-content
+}
+
+.successBox {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 25px;
+    padding: 20px;
+    background: var(--panel);
+    border: 1px solid #5c4b2c;
+    border-radius: 10px
+}
+
+.successBox b {
+    color: var(--gold)
+}
+
+.notFound {
+    min-height: 80vh;
+    display: grid;
+    place-items: center
+}
+
+.contactPage {
+    min-height: 100vh
+}
+
+.contactHero {
+    padding: 100px 8vw 120px;
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 70px;
+    align-items: center;
+    background: radial-gradient(circle at 80% 30%, #3a2c18 0, transparent 28%)
+}
+
+.contactHero h1 {
+    font-size: clamp(60px, 8vw, 110px);
+    line-height: .88;
+    letter-spacing: -5px;
+    margin: 18px 0
+}
+
+.contactCards {
+    display: grid;
+    gap: 10px
+}
+
+.contactCards>div {
+    padding: 23px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 10px
+}
+
+.contactCards span {
+    display: block;
+    color: var(--gold);
+    font: 9px 'DM Mono';
+    margin-bottom: 8px
+}
+
+.contactCards p {
+    color: var(--muted);
+    font-size: 11px
+}
+
+.contactSection {
+    padding: 100px 8vw;
+    background: var(--panel);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px
+}
+
+.contactSection h2 {
+    font-size: 60px;
+    line-height: .9;
+    letter-spacing: -3px;
+    margin-top: 15px
+}
+
+.contactForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px
+}
+
+.contactForm textarea {
+    grid-column: 1/-1;
+    resize: vertical
+}
+
+.contactForm button {
+    width: max-content
+}
+
+footer {
+    padding: 38px 8vw;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--muted)
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--gold);
+    font-size: 11px
+}
+
+.visible {
+    animation: rise .75s cubic-bezier(.2, .8, .2, 1) both;
+    animation-delay: var(--delay, 0ms)
+}
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(30px)
+    }
+
+    to {
+        opacity: 1;
+        transform: none
+    }
+}
+
+@media(max-width:950px) {
+    .grid {
+        grid-template-columns: 1fr 1fr
+    }
+
+    .navlinks {
+        display: none
+    }
+
+    .heroStats {
+        display: none
+    }
+
+    .buyPage,
+    .contactHero,
+    .contactSection,
+    .manifesto {
+        grid-template-columns: 1fr
+    }
+
+    .buyVisual img {
+        height: 450px
+    }
+
+    .adminStats {
+        grid-template-columns: 1fr 1fr
+    }
+
+    .analytics {
+        grid-template-columns: 1fr
+    }
+}
+
+@media(max-width:620px) {
+    .nav {
+        margin: 0;
+        width: 100%;
+        border-radius: 0;
+        top: 0
+    }
+
+    .navActions .garage {
+        font-size: 0
+    }
+
+    .navActions .garage i {
+        font-size: 10px
+    }
+
+    .section {
+        padding: 75px 5vw
+    }
+
+    .hero {
+        padding: 80px 5vw;
+        min-height: 90vh
+    }
+
+    .hero h1 {
+        letter-spacing: -3px
+    }
+
+    .grid,
+    .filters,
+    .formGrid,
+    .buyForm,
+    .contactForm {
+        grid-template-columns: 1fr
+    }
+
+    .sectionHead {
+        display: block
+    }
+
+    .sectionHead h2,
+    .manifesto h2 {
+        font-size: 45px
+    }
+
+    .detail {
+        grid-template-columns: 1fr
+    }
+
+    .detail img {
+        height: 230px
+    }
+
+    .buyPage {
+        padding: 55px 5vw
+    }
+
+    .buyVisual img {
+        height: 300px
+    }
+
+    .contactHero {
+        padding: 70px 5vw
+    }
+
+    .contactSection {
+        padding: 70px 5vw
+    }
+
+    .admin {
+        padding: 25px 4vw
+    }
+
+    .adminStats {
+        grid-template-columns: 1fr
+    }
+
+    .adminQuick {
+        align-items: stretch;
+        flex-direction: column
+    }
+
+    .shortcut {
+        margin: 0
+    }
+
+    .adminRow {
+        flex-wrap: wrap
+    }
+
+    .bar {
+        grid-template-columns: 90px 1fr 20px
+    }
+
+    footer {
+        display: block
+    }
+
+    footer>* {
+        display: block;
+        margin: 9px 0
+    }
+}
+/* =========================
+   PREMIUM AD CARD
+   ========================= */
+
+.adCard {
+    position: relative;
+    min-height: 100%;
+    overflow: hidden;
+    border: 1px solid #5b4b30;
+    border-radius: 12px;
+    background: #10100e;
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, .35),
+        inset 0 0 0 1px rgba(200, 166, 91, .04);
+    transition: .35s ease;
+}
+
+.adCard:hover {
+    transform: translateY(-7px);
+    border-color: #c8a65b;
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, .45),
+        0 0 35px rgba(200, 166, 91, .08);
+}
+
+.adImage {
+    position: relative;
+    min-height: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.adImage img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .7s ease;
+}
+
+.adCard:hover .adImage img {
+    transform: scale(1.07);
+}
+
+.adOverlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(8, 8, 7, .18) 0%,
+            rgba(8, 8, 7, .35) 35%,
+            rgba(8, 8, 7, .96) 100%
+        );
+}
+
+.adBadge {
+    position: absolute;
+    top: 17px;
+    left: 17px;
+
+    padding: 7px 10px;
+
+    border: 1px solid rgba(200, 166, 91, .55);
+    border-radius: 5px;
+
+    background: rgba(10, 10, 9, .65);
+    backdrop-filter: blur(8px);
+
+    color: #d8bb72;
+    font: 9px "DM Mono", monospace;
+    letter-spacing: 1.5px;
+}
+
+.adContent {
+    position: absolute;
+    left: 25px;
+    right: 25px;
+    bottom: 25px;
+    z-index: 2;
+}
+
+.adContent small {
+    color: #c8a65b;
+    font: 10px "DM Mono", monospace;
+    letter-spacing: 1.8px;
+}
+
+.adContent h3 {
+    margin: 10px 0 12px;
+
+    font-size: 30px;
+    line-height: .95;
+    letter-spacing: -1.5px;
+}
+
+.adContent h3 em {
+    font-family: "Playfair Display", serif;
+    color: #c8a65b;
+    font-weight: 600;
+}
+
+.adContent p {
+    max-width: 320px;
+    margin: 0 0 22px;
+
+    color: #aaa;
+    font-size: 12px;
+    line-height: 1.65;
+}
+
+.adBottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.adBottom strong {
+    color: #eee;
+    font-size: 18px;
+}
+
+.adBottom .goldBtn {
+    padding: 11px 15px;
+    white-space: nowrap;
+}
+
+/* =========================
+   LIGHT MODE
+   ========================= */
+
+html[data-theme="light"] .adCard {
+    border-color: #cdbd99;
+    background: #eee8db;
+    box-shadow: 0 15px 45px rgba(70, 60, 40, .12);
+}
+
+html[data-theme="light"] .adOverlay {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(20, 18, 14, .08) 0%,
+            rgba(20, 18, 14, .35) 40%,
+            rgba(20, 18, 14, .92) 100%
+        );
+}
+
+html[data-theme="light"] .adContent p {
+    color: #d5d0c5;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 900px) {
+    .adCard {
+        min-height: 420px;
+    }
+
+    .adImage {
+        min-height: 420px;
+    }
+}
+
+@media (max-width: 620px) {
+    .adCard {
+        min-height: 390px;
+    }
+
+    .adImage {
+        min-height: 390px;
+    }
+
+    .adContent {
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    .adContent h3 {
+        font-size: 27px;
+    }
+
+    .adBottom strong {
+        font-size: 16px;
+    }
+}
